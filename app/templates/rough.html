@@ -1,0 +1,60 @@
+
+def create_user(request):
+    if request.method == "POST":
+        p_name = request.POST["p_name"]
+        update_type = request.POST.get('gender')
+        if update_type == "Male":
+            gender = "Male"
+        else:
+            gender = "Female"
+
+        p_address = request.POST["p_address"]
+        p_phone = request.POST['p_phone']
+        p_age = request.POST["p_age"]
+        p_blood = request.POST['p_blood']
+        email = request.POST["email"]
+        username = request.POST["username"]
+        password = request.POST["password"]
+        cpassword = request.POST["cpassword"]
+
+        p_image=request.FILES.get('file')
+        if p_image==None:
+            p_image='image/img.png'
+
+        if password == cpassword:
+            if User.objects.filter(username=username).exists():
+                messages.info(request, "This username is already taken, try another.")
+                return redirect("signup_page")
+            elif User.objects.filter(email=email).exists():
+                messages.info(request, "This email is already in use.")
+                return redirect("signup_page")
+            else:
+                user = User.objects.create_user(username=username,password=password,email=email)
+                user.save()
+                data = User.objects.get(id=user.id)
+                patient_data = PatientModel(
+                    p_name=p_name,
+                    gender=gender,
+                    p_age=p_age,
+                    p_address=p_address,
+                    p_phone=p_phone,
+                    patient=data,  
+                    p_blood=p_blood,
+                    p_image=p_image,
+                )
+                patient_data.save()   
+                send_confirmation_email(user)          
+                return redirect("home")
+        else:
+            messages.info(request, "Passwords do not match. Try again.")
+            return redirect('signup_page')
+    else:
+        return redirect('signup_page')
+
+def send_confirmation_email(user):
+    subject = "Account Registration Confirmation"
+    message = "Thank you for registering your account. Your account has been successfully created. "
+    from_email = "gireeshdas32@gmail.com"  
+    to_email = user.email
+    send_mail(subject,message,from_email,[to_email])
+  

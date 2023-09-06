@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <title>Admin_doctor_list</title>
+</head>
+<style>
+       footer {
+        padding: 0px 0px 0px 0px;
+        background-color: rgba(0, 0, 0, 0.734);
+        margin: 0px;
+    }
+
+    .fa {
+        padding: 20px;
+        font-size: 23px;
+        width: 60px;
+        text-align: center;
+        text-decoration: none;
+        margin: 5px 2px;
+        border-radius: 50%;
+    }
+
+    .fa:hover {
+        opacity: 0.5;
+        text-decoration: none;
+    }
+
+    .fa-facebook {
+        background: #3B5998;
+        color: white;
+        margin-top: 30px;
+    }
+
+    .fa-whatsapp {
+        background: #25d366;
+        color: white;
+    }
+
+    .fa-twitter {
+        background: #55ACEE;
+        color: white;
+    }
+
+    .fa-instagram {
+        background: #125688;
+        color: white;
+    }
+
+    p {
+        text-align: center;
+
+    }
+    body {
+        background-color: antiquewhite;
+    }
+
+   
+
+</style>
+<body>
+    <nav class="navbar navbar-expand-lg bg-body-secondary">
+        <div class="container-fluid">
+            <a style="font-size: 25px;" class="navbar-brand" href="{% url 'AdminLandingPage' %}"><b>Health Care</b><i class='fas fa-stethoscope'
+                    style='font-size:48px;color:red'></i></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a style="margin-left: 1250px; font-size: 20px;" href=""></a>
+                    <a style=" font-size: 20px;" class="nav-link" href="{% url 'logout' %}"><b>Logout <i
+                                style='font-size:24px' class='fas'>&#xf011;</i></b></a>
+
+                </div>
+            </div>
+        </div>
+    </nav>
+    <br>
+    <center>
+        <div>
+            <div class="col-4"></div>
+            <div class="col-4">
+                {% for m in messages%}
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    <strong>{{m}} </strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+  
+                {% endfor %}
+            </div>
+            <div class="col-4"></div>
+        </div>      
+    </center>
+     
+     <center>
+      <div class="container card shadow">
+        <div class="card-body">
+            <h2 class="p-2" style="border-bottom: 2px solid orange">DOCTORS RECORDS</h2>
+    
+        <div class="container mt-5">
+        <h1 class="text-success text-center"></h1>
+          <div class="table-responsive">
+        <table id="example" class="table table-striped table-bordered table-sm" style="width:80%">
+            <thead>
+                <tr>
+                    <th scope="col">No.</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Department</th>
+                    <th scope="col">Phone</th>
+                    <th scope="col">Shift</th>
+                    <th scope="col">Image</th>
+                    <th scope="col">Action</th>
+
+                </tr>
+            </thead>
+            <tbody>
+               
+              {% for p in doctor%}
+                <tr>
+                    <td class="pt-4">{{p.id}} </td>  
+                    <td class="pt-4">{{p.dr_name}} </td>      
+                    <td class="pt-4">{{p.dr_department}}</td>
+                    <td class="pt-4">{{p.dr_phone}}</td>
+                    <td style="color: #0e662e;" class="pt-4"><b>{{p.dr_time}}</b></td>
+                  
+                    <td class="pt-4">
+                        <img src="{{p.dr_image.url}}" style="margin-bottom: 3px; " width="30px" alt="">
+                    </td>                                 
+                  <td>
+                        <a rol="button" class="" href="{% url 'delete_doctor' p.id %}"><i class='fas fa-trash-alt' style=' color: #149242; font-size:26px'></i></a>
+                        <a rol="button" class="" href="{% url 'edit_doctor_page' p.id %}"><i class='far fa-edit' style='padding: 3px; color: #921464; font-size:26px'></i></a>
+                    </td>
+                </tr>
+          {% endfor %}
+            </tbody>
+        </table>
+      </center>
+    
+</body>
+<br>
+
+<footer>
+
+    <p>
+        <a href="" class="fa fa-facebook"></a>
+        <a href=""></a>
+        <a href="" class="fa fa-instagram"></a>
+        <a href="" class="fa fa-twitter"></a>
+    <div>
+        <p style="color: white;">Contact :+917902606485 || hospitalCare@gmail.com</p>
+        <p style="color: white;">Ambulance service :+917902606485
+    </div>
+    </p>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-sm-12">
+                <div style="color:#ffffff;" class="wow fadeInUp footer-copyright">
+                    <p> <br>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+</html>

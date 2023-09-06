@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Patient profile</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+
+    <title>Patient profile</title>
+</head>
+<style>
+    @media (max-width: 768px) {
+    .profile-card {
+        width: 90%;
+    }
+}
+    footer {
+        padding: 0px 0px 0px 0px;
+        background-color: rgba(0, 0, 0, 0.734);
+        margin-top: auto;
+    }
+
+    .fa {
+        padding: 20px;
+        font-size: 23px;
+        width: 60px;
+        text-align: center;
+        text-decoration: none;
+        margin: 5px 2px;
+        border-radius: 50%;
+    }
+
+    .fa:hover {
+        opacity: 0.5;
+        text-decoration: none;
+    }
+
+    .fa-facebook {
+        background: #3B5998;
+        color: white;
+        margin-top: 30px;
+    }
+
+    .fa-whatsapp {
+        background: #25d366;
+        color: white;
+    }
+
+    .fa-twitter {
+        background: #55ACEE;
+        color: white;
+    }
+
+    .fa-instagram {
+        background: #125688;
+        color: white;
+    }
+
+    p {
+        text-align: center;
+
+    }
+
+    @import url(https://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700);
+
+    *,
+    *:after,
+    *:before {
+        margin: 0;
+        padding: 0;
+
+        box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+
+        -webkit-text-size-adjust: 100%;
+        -ms-text-size-adjust: 100%;
+
+        font-smoothing: antialiased;
+        text-rendering: optimizeLegibility;
+        -webkit-font-smoothing: antialiased;
+        font-smooth: always;
+
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+
+        font-family: inherit;
+
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    }
+
+    body {
+        font: 300 13px/1.6 Roboto, Helvetica, Arial;
+        background-color: #144524a0;
+        position: relative;
+        background: #448AFF;
+        height: 140vh;
+        text-align: center;
+        /*background: #3f51b5;*/
+
+        background: url('http://ali.shahab.pk/blur.php?img=http://ali.shahab.pk/ali-shahab.jpg&x=250') no-repeat center center;
+        background-size: cover;
+        font-size: 10px;
+        min-height: 110vh;
+        display: flex;
+        flex-direction: column;
+    }
+
+    body:after {
+        content: "";
+        display: block;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+        background-color: #144524a0;
+        z-index: -1
+    }
+
+    ul {
+        list-style: none;
+    }
+
+    img {
+        -ms-interpolation-mode: bicubic;
+        vertical-align: middle;
+        border: 0;
+    }
+
+    .profile-card {
+        width: 70%;
+        border-radius: 2px;
+        overflow: hidden;
+        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
+        position: relative;
+        margin: auto;
+        background:white;
+        top: 20%;
+        transform: translateY(-50%);
+       
+    }
+    /* .profile-card {
+    /* Remove width: 70%; */
+    width: 90%; /* Set a relative width */
+    max-width: 500px; /* Optionally set a max-width */
+    margin: auto;
+    top: 10%; /* Adjust the top position */
+    transform: translateY(-50%);
+} */
+.profile-card .profile-bio {
+    padding: 10px 20px; /* Adjust padding */
+    font-size: 14px; /* Adjust font-size */
+}
+@media (max-width: 768px) {
+    .profile-card {
+        width: 90%;
+    }
+}
+
+    .profile-card header {
+        display: block;
+        position: relative;
+        background: rgba(255, 255, 255, 1);
+        text-align: center;
+        padding: 30px 0 20px;
+        z-index: 1;
+        overflow: hidden;
+        font-size: 30px;
+    }
+
+    .profile-card header:before {
+        content: "";
+        position: absolute;
+        background: url('http://ali.shahab.pk/blur.php?img=http://ali.shahab.pk/ali-shahab.jpg&x=60') no-repeat;
+        background-size: cover;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        z-index: -1;
+
+    }
+
+    .profile-card header:after {
+        content: "";
+        position: absolute;
+        bottom: -1px;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        background-image: linear-gradient(to bottom,
+                rgba(255, 255, 255, 0) 0%,
+                rgba(255, 255, 255, 1) 100%);
+    }
+
+    .profile-card header img {
+        border-radius: 100%;
+        overflow: hidden;
+        width: 150px;
+        /*border: 1px solid rgba(255,255,255,.5);*/
+        box-shadow: 0 1px 0 rgba(0, 0, 0, .1), 0 1px 2px rgba(0, 0, 0, .1);
+    }
+
+    .profile-card header h1 {
+        font-weight: 200;
+        font-size: 32px;
+        color: #444;
+        letter-spacing: -3px;
+        margin: 0;
+        padding: 0;
+    }
+
+    .profile-card header h2 {
+        font-weight: 400;
+        font-size: 13px;
+        color: #666;
+        letter-spacing: .5px;
+        margin: 0;
+        padding: 0;
+    }
+
+    .profile-card .profile-bio {
+        padding: 0 30px;
+        text-align: center;
+        color: #888;
+    }
+
+    .profile-card .profile-social-links {
+        display: table;
+        width: 90%;
+        margin: 20px auto;
+    }
+
+    .profile-card .profile-social-links li {
+        display: table-cell;
+        width: 33.3333333333333333%
+    }
+
+    .profile-card .profile-social-links li a {
+        display: block;
+        text-align: center;
+        padding: 5px;
+        margin: 0 10px;
+        border-radius: 100%;
+        -webkit-transition: box-shadow 0.2s;
+        -moz-transition: box-shadow 0.2s;
+        -o-transition: box-shadow 0.2s;
+        transition: box-shadow 0.2s;
+    }
+
+    .profile-card .profile-social-links li a:hover {
+        box-shadow: 0 1px 1.5px 0 rgba(0, 0, 0, .12), 0 1px 1px 0 rgba(0, 0, 0, .24);
+    }
+
+    .profile-card .profile-social-links li a:active {
+        box-shadow: 0 4px 5px 0 rgba(0, 0, 0, .14), 0 1px 10px 0 rgba(0, 0, 0, .12), 0 2px 4px -1px rgba(0, 0, 0, .2);
+    }
+
+    .profile-card .profile-social-links li a img {
+        width: 100%;
+        display: block;
+    }
+
+    .button-70 {
+        background-image: linear-gradient(#0dccea, #0d70ea);
+        border: 0;
+        border-radius: 4px;
+        box-shadow: rgba(0, 0, 0, .3) 0 5px 15px;
+        box-sizing: border-box;
+        color: #fff;
+        cursor: pointer;
+        font-family: Montserrat, sans-serif;
+        font-size: 10px;
+        margin: 5px;
+        padding: 10px 15px;
+        text-align: center;
+        user-select: none;
+        -webkit-user-select: none;
+        touch-action: manipulation;
+    }
+</style>
+
+<body>
+    <nav class="navbar navbar-expand-lg bg-body-secondary">
+        <div class="container-fluid">
+            <a style="font-size: 25px;" class="navbar-brand" href="{% url 'PatientLandingPage' %}"><b>Health Care</b><i
+                    class='fas fa-stethoscope' style='font-size:48px;color:red'></i></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a href="" style="margin-left: 1100px;"></a>
+                    <a style=" font-size: 20px;" class="nav-link active" aria-current="page"
+                        href="{% url 'profile' %}"><b><i class='fas fa-user-circle'
+                                style='font-size:28px;color:red'></i> Profile</b></a>
+                    <a style="font-size: 20px;" class="nav-link" href="{% url 'logout' %}"><b>Logout <i
+                                style='font-size:24px' class='fas'>&#xf011;</i></b></a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <br>
+    <center>
+        <div>
+            <div class="col-4"></div>
+            <div class="col-4">
+                {% for m in messages%}
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    <strong>{{m}} </strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+
+                {% endfor %}
+            </div>
+            <div class="col-4"></div>
+        </div>
+    </center>
+
+    <!-- this is the markup. you can change the details (your own name, your own avatar etc.) but don’t change the basic structure! -->
+    <br><br><br><br>
+    <aside class="profile-card">
+        <header>
+            <a href="">
+                <img src="{{user.p_image.url}}">
+            </a>
+            <br>
+            <a  href="{% url 'edituser' user.patient.id  %}"><button class="button-70" role="button">Update
+                Profile</button></a>
+        <a  href="{% url 'change_password' %}"><button class="button-70" role="button">Update
+                    Password</button></a>
+            <h1>{{user.p_name}}</h1>
+            <h2>Location: {{user.p_address}}</h2>
+        </header>
+        <div class="profile-bio">
+            <h6>Age : {{user.p_age}}</h6>
+            <h6>Gender : {{user.gender}}</h6>
+            <h6>Blood Group : {{user.p_blood}}</h6>
+            <h6>Phone : {{user.p_phone}}</h6>
+            <h6>Email : {{request.user.email}}</h6>
+            <br>
+
+           
+            <br>
+        </div>
+     
+    </aside>
+</body>
+<footer>
+
+    <p>
+        <a href="" class="fa fa-facebook"></a>
+        <a href=""></a>
+        <a href="" class="fa fa-instagram"></a>
+        <a href="" class="fa fa-twitter"></a>
+    <div>
+        <p style="color: white;">Contact :+917902606485 || hospitalCare@gmail.com</p>
+        <p style="color: white;">Ambulance service : +917902606485 </p>
+
+
+
+    </div>
+    </p>
+
+    <br>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-sm-12">
+                <div style="color:#ffffff;" class="wow fadeInUp footer-copyright">
+                    <p> <br>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+</html>

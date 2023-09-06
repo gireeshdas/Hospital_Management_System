@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+      crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+      crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+      <link rel = stylesheet href = "//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+      <script src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+
+    {% if error == "no" %}
+         <script>
+           alert('Your Message has been Send Successfully');
+           window.location=('{% url "contact" %}');
+         </script>
+    {% endif %}
+    
+    {% if error == "yes" %}
+         <script>
+            alert('Something went wrong, Try Again');
+         </script>
+    {% endif %}
+    <style>
+      footer {
+        padding: 0px 0px 0px 0px;
+        background-color: rgba(0, 0, 0, 0.734);
+        margin: 0px;
+    }
+
+    .fa {
+        padding: 20px;
+        font-size: 23px;
+        width: 60px;
+        text-align: center;
+        text-decoration: none;
+        margin: 5px 2px;
+        border-radius: 50%;
+    }
+
+    .fa:hover {
+        opacity: 0.5;
+        text-decoration: none;
+    }
+
+    .fa-facebook {
+        background: #3B5998;
+        color: white;
+        margin-top: 30px;
+    }
+
+    .fa-whatsapp {
+        background: #25d366;
+        color: white;
+    }
+
+    .fa-twitter {
+        background: #55ACEE;
+        color: white;
+    }
+
+    .fa-instagram {
+        background: #125688;
+        color: white;
+    }
+
+    p {
+        text-align: center;
+
+    }
+    </style>
+    <body>
+        <nav class="navbar navbar-expand-lg bg-body-secondary">
+            <div class="container-fluid">
+              <a style="font-size: 25px;" class="navbar-brand" href="{% url 'home' %}"><b>Health Care</b><i class='fas fa-stethoscope' style='font-size:48px;color:red'></i></a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                  <a style="margin-left: 1050px; font-size: 20px;" class="nav-link active" aria-current="page" href="{% url 'home' %}"><b>Home</b></a>
+                  <a style="font-size: 20px;" class="nav-link" href="#"><b>Contact</b></a>
+                  <a style=" font-size: 20px;" class="nav-link" href="#"><b>About us</b></a>
+                </div>
+              </div>
+            </div>
+          </nav>
+    <section style="background-color :white; height : 650px;">
+     <div class="container py-5" >
+       <div class="card" style="background-color: #90b5d13c;">
+         <div class="card-body">
+           <h1 class="">Contact Us</h1>
+           <div class="row">
+             <div class="col-lg-6 col-md-12 col-sm-12">
+    
+              <div class="row pt-3" >
+                <div class="col-lg-1 offset-1 col-md-2 col-sm-2">
+                  <span style="font-size: 30px; color: rgb(86, 140, 142)"><svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-house" viewBox="0 0 16 16">
+                    <path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.707 1.5ZM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5 5 5Z"/>
+                  </svg><i class="bi bi-house"></i></span>
+                </div>
+    
+                 <div class="col-lg-10 col-md-9 col-sm-9">
+                   <h3 class="">Find Us at the office</h3>
+                   <p>Ernakulam<br>
+                     Koothattukualm<br>
+                     
+                   </p>
+                </div>
+              </div>
+    
+              <div class="row pt-3">
+                <div class="col-lg-1 offset-1 col-md-2 col-sm-2">
+                  <span style="font-size: 30px; color: coral"><svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-phone-vibrate-fill" viewBox="0 0 16 16">
+                    <path d="M4 4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4zm5 7a1 1 0 1 0-2 0 1 1 0 0 0 2 0zM1.807 4.734a.5.5 0 1 0-.884-.468A7.967 7.967 0 0 0 0 8c0 1.347.334 2.618.923 3.734a.5.5 0 1 0 .884-.468A6.967 6.967 0 0 1 1 8c0-1.18.292-2.292.807-3.266zm13.27-.468a.5.5 0 0 0-.884.468C14.708 5.708 15 6.819 15 8c0 1.18-.292 2.292-.807 3.266a.5.5 0 0 0 .884.468A7.967 7.967 0 0 0 16 8a7.967 7.967 0 0 0-.923-3.734zM3.34 6.182a.5.5 0 1 0-.93-.364A5.986 5.986 0 0 0 2 8c0 .769.145 1.505.41 2.182a.5.5 0 1 0 .93-.364A4.986 4.986 0 0 1 3 8c0-.642.12-1.255.34-1.818zm10.25-.364a.5.5 0 0 0-.93.364c.22.563.34 1.176.34 1.818 0 .642-.12 1.255-.34 1.818a.5.5 0 0 0 .93.364C13.856 9.505 14 8.769 14 8c0-.769-.145-1.505-.41-2.182z"/>
+                  </svg><i class="bi bi-phone-vibrate-fill"></i></span>
+                </div>
+    
+                 <div class="col-lg-10 col-md-9 col-sm-9">
+                   <h3 class="">Give Us a Ring</h3>
+                   <p>Health <i class='fas fa-stethoscope' style='font-size:18px;color:red'></i> Care<br>
+                     +91 8602768216<br>
+                     Ernakulam,Koothattukulam
+                   </p>
+                </div>
+              </div>
+    
+             </div>
+    
+             <div class="col-lg-6 col-md-12 col-sm-12">
+               <form action="" method="post">
+                   {% csrf_token %}
+                 <div class="form-row">
+                    <div class="form-group col-lg-6 col-md-12 col-sm-12">
+                      <label>Full Name</label>
+                      <input type="text" name="name" class="form-control" placeholder="Full Name" required>
+                    </div>
+    
+                    <div class="form-group col-lg-6 col-md-12 col-sm-12">
+                      <label>Contact Number</label>
+                      <input type="text" name="contact" class="form-control" placeholder="Contact Number" required>
+                    </div>
+    
+                    <div class="form-group col-lg-6 col-md-12 col-sm-12">
+                      <label>Email Id</label>
+                      <input type="email" name="email" class="form-control" placeholder="Email ID" required>
+                    </div>
+    
+                     <div class="form-group col-lg-6 col-md-12 col-sm-12">
+                      <label>Subject</label>
+                      <input type="text" name="subject" class="form-control" placeholder="Enter Subject" required>
+                    </div>
+    
+                     <div class="form-group col-lg-12 col-md-12 col-sm-12">
+                      <label>Message</label>
+                      <textarea name="message" class="form-control" placeholder="Message....."></textarea>
+                    </div>
+    
+                     <div class="form-group col-lg-6 col-md-12 col-sm-12">
+                       <input type="submit" value="Send" class="form-control btn btn-primary">
+                     </div>
+    
+                    <div class="form-group col-lg-6 col-md-12 col-sm-12">
+                       <input type="reset" value="Clear" class="form-control btn btn-primary">
+                    </div>
+    
+                 </div>
+               </form>
+             </div>
+           </div>
+    
+         </div>
+       </div>
+     </div>
+</head>
+<body>
+    
+</body>
+<br><br><br><br><br>
+<footer>
+
+    <p>
+      <a href="" class="fa fa-facebook"></a>
+      <a href=""></a>
+      <a href="" class="fa fa-instagram"></a>
+      <a href="" class="fa fa-twitter"></a>
+      <div>
+        <p style="color: white;">Contact :+917902606485 || hospitalCare@gmail.com</p>
+      </div>
+    </p>
+  
+    <br>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 col-sm-12">
+          <div style="color:#ffffff;" class="wow fadeInUp footer-copyright">
+            <p> <br>
+               </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+</html>

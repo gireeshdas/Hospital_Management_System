@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+      crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="style.css" />
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+      crossorigin="anonymous"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  
+  <title>Bill Receipt</title>
+  <script>
+    function calculateTotal() {
+      var medicineCost = parseFloat(document.getElementById('medicineCost').value);
+      var roomRent = parseFloat(document.getElementById('roomRent').value);
+      var gst = parseFloat(document.getElementById('gst').value);
+
+      var totalCost = medicineCost + roomRent + (medicineCost * gst / 100);
+
+      document.getElementById('totalCost').value = totalCost.toFixed(2);
+    }
+
+    function downloadReceipt() {
+      var patientName = document.getElementById('patientName').textContent;
+      var patientAge = document.getElementById('patientAge').textContent;
+      var patientAddress = document.getElementById('patientAddress').textContent;
+      var admitDate = document.getElementById('admitDate').textContent;
+      var medicineCost = document.getElementById('medicineCost').value;
+      var roomRent = document.getElementById('roomRent').value;
+      var gst = document.getElementById('gst').value;
+      var totalCost = document.getElementById('totalCost').value;
+
+      var receiptContent = "Patient Name: " + patientName + "\n" +
+                           "Patient Age: " + patientAge + "\n" +
+                           "Patient Address: " + patientAddress + "\n" +
+                           "Admit Date: " + admitDate + "\n\n" +
+                           "Medicine Cost: " + medicineCost + "\n" +
+                           "Room Rent: " + roomRent + "\n" +
+                           "GST: " + gst + "\n\n" +
+                           "Total Cost: " + totalCost;
+
+      var element = document.createElement('a');
+      element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(receiptContent));
+      element.setAttribute('download', 'bill_receipt.txt');
+      element.style.display = 'none';
+      document.body.appendChild(element);
+      element.click();
+      document.body.removeChild(element);
+    }
+  </script>
+   <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: antiquewhite;
+    }
+    .bill-container {
+      max-width: 500px;
+      margin: 0 auto;
+      background-color: #fff;
+      padding: 20px;
+      border: 1px solid #ccc;
+      box-shadow: 0 0 5px #ccc;
+    }
+    h3 {
+      text-align: center;
+    }
+    .patient-info {
+      font-size: 16px;
+    }
+    .bill-form {
+      margin-top: 20px;
+      border-top: 1px solid #ccc;
+      padding-top: 10px;
+    }
+    label {
+      display: inline-block;
+      width: 120px;
+    }
+    input[type="date"],
+    input[type="text"] {
+      width: 150px;
+      padding: 5px;
+      margin-bottom: 10px;
+    }
+    button {
+      padding: 8px 15px;
+      background-color: #4CAF50;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+    #totalCost {
+      font-weight: bold;
+      width: 100px;
+      margin-left: 10px;
+      border: 1px solid #ccc;
+      padding: 5px;
+    }
+    footer {
+        padding: 0px 0px 0px 0px;
+        background-color: rgba(0, 0, 0, 0.734);
+        margin: 0px;
+    }
+
+    .fa {
+        padding: 20px;
+        font-size: 23px;
+        width: 60px;
+        text-align: center;
+        text-decoration: none;
+        margin: 5px 2px;
+        border-radius: 50%;
+    }
+
+    .fa:hover {
+        opacity: 0.5;
+        text-decoration: none;
+    }
+
+    .fa-facebook {
+        background: #3B5998;
+        color: white;
+        margin-top: 30px;
+    }
+
+    .fa-whatsapp {
+        background: #25d366;
+        color: white;
+    }
+
+    .fa-twitter {
+        background: #55ACEE;
+        color: white;
+    }
+
+    .fa-instagram {
+        background: #125688;
+        color: white;
+    }
+
+    p {
+        text-align: center;
+
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg bg-body-secondary">
+    <div class="container-fluid">
+        <a style="font-size: 25px;" class="navbar-brand" href="{% url 'AdminLandingPage' %}"><b>Health Care</b><i class='fas fa-stethoscope'
+                style='font-size:48px;color:red'></i></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a style="margin-left: 1250px; font-size: 20px;" href=""></a>
+                <a style=" font-size: 20px;" class="nav-link" href="{% url 'logout' %}"><b>Logout <i
+                            style='font-size:24px' class='fas'>&#xf011;</i></b></a>
+            </div>
+        </div>
+    </div>
+</nav>
+<br>
+  <div class="bill-container">
+    <h3>Create Patient Bill</h3>
+    <br><br>
+    {% for p in patient %}
+      <div class="patient-info">
+        <div>Patient Name: {{ p.p_name }}</div><br>
+        <div>Patient Age: {{ p.p_age }}</div><br>
+        <div>Patient Address: {{ p.p_address }}</div><br>
+        <div>Admit Date: {{ p.join_date }}</div><br>
+      </div>
+    {% endfor %}
+    <br>
+    <form class="bill-form" action="{% url 'discharge_bill' user.id %}" method="POST">
+      {% csrf_token %}
+      <label for="releaseDate">Release Date:</label>
+      <input type="date" name="releaseDate" required><br>
+      <label for="medicineCost">Medicine Cost:</label>
+      <input type="text" id="medicineCost" name="medicine_cost" required><br>
+      <label for="roomRent">Room Rent:</label>
+      <input type="text" id="roomRent" name="room_rent" required><br>
+      <label for="gst">GST:</label>
+      <input type="text" id="gst" name="gst"><br>
+      <br>
+      <button onclick="calculateTotal()">Calculate Total</button>
+      Total Cost:
+      <input type="text" id="totalCost" name="total_cost" readonly>
+      <br><br>
+      <button onclick="downloadReceipt()">Download Receipt</button>
+    </form>
+</body>
+
+
+
+<footer>
+
+
+
+</footer>
+
+
+
+
+</html>

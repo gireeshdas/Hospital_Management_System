@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <title>Departments</title>
+</head>
+<style>
+    /* CSS styles for the page */
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 20px;
+        background-color: #f2f2f2;
+    }
+
+    .container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .card {
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.37);
+        padding: 20px;
+        margin-bottom: 20px;
+        width: calc(33.33% - 20px);
+        box-sizing: border-box;
+    }
+
+    .card h2 {
+        margin-top: 0;
+        color: rgb(108, 27, 27);
+        font-size: 25px;
+    }
+
+    footer {
+        padding: 0px 0px 0px 0px;
+        background-color: rgba(0, 0, 0, 0.734);
+        margin: 0px;
+    }
+
+    .fa {
+        padding: 20px;
+        font-size: 23px;
+        width: 60px;
+        text-align: center;
+        text-decoration: none;
+        margin: 5px 2px;
+        border-radius: 50%;
+    }
+
+    .fa:hover {
+        opacity: 0.5;
+        text-decoration: none;
+    }
+
+    .fa-facebook {
+        background: #3B5998;
+        color: white;
+        margin-top: 30px;
+    }
+
+    .fa-whatsapp {
+        background: #25d366;
+        color: white;
+    }
+
+    .fa-twitter {
+        background: #55ACEE;
+        color: white;
+    }
+
+    .fa-instagram {
+        background: #125688;
+        color: white;
+    }
+
+    p {
+        text-align: center;
+    }
+    
+    /* Media queries for Galaxy Fold */
+    @media screen and (max-width: 280px) {
+        .container {
+            flex-direction: column;
+            max-width: 100%;
+        }
+
+        .card {
+            width: 100%;
+            margin: 0 auto 20px;
+        }
+
+        .navbar-brand {
+            font-size: 20px;
+        }
+
+        .navbar-nav .nav-link {
+            font-size: 16px;
+        }
+    }
+
+</style>
+<body>
+   <div>
+    <nav class="navbar navbar-expand-lg bg-body-secondary">
+        <div class="container-fluid">
+          <a style="font-size: 25px;" class="navbar-brand" href="{% url 'home' %}"><b>Health Care</b><i class='fas fa-stethoscope' style='font-size:48px;color:red'></i></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a style="margin-left: 1250px;" href=""></a>
+              <a style=" font-size: 20px;" class="nav-link active" aria-current="page" href="{% url 'home' %}"><b>Home</b></a>
+            </div>
+          </div>
+        </div>
+      </nav>
+   </div>
+      <br><br>
+   
+    <div class="container">
+      <div class="card">
+        <h2>Cardiology</h2>
+      </div>
+      <div class="card">
+        <h2>Neurology</h2>
+      </div>
+      <div class="card">
+        <h2>Oncology</h2>
+      </div>
+      <div class="card">
+        <h2>Orthopedics</h2>
+      </div>
+      <div class="card">
+        <h2>Gastroenterology</h2>
+      </div>
+      <div class="card">
+        <h2>Pediatrics</h2>
+      </div>
+      <div class="card">
+        <h2>Obstetrics and Gynecology</h2>
+      </div>
+      <div class="card">
+        <h2>General Surgery</h2>
+      </div>
+      <div class="card">
+        <h2>Emergency Medicine</h2>
+      </div>
+      <div class="card">
+        <h2>Radiology</h2>
+      </div>
+      <div class="card">
+        <h2>Urology</h2>
+      </div>
+      <div class="card">
+        <h2>Hematology</h2>
+      </div>
+      <div class="card">
+        <h2>Anesthetic</h2>
+      </div>
+      <div class="card">
+        <h2>Gynecology</h2>
+      </div>
+      <div class="card">
+        <h2>X-Ray</h2>
+      </div>
+      <div class="card">
+        <h2>Medical Lab</h2>
+      </div>
+    </div>
+
+</body>
+<br><br><br>
+<footer>
+
+    <p>
+      <a href="" class="fa fa-facebook"></a>
+      <a href=""></a>
+      <a href="" class="fa fa-instagram"></a>
+      <a href="" class="fa fa-twitter"></a>
+      <div>
+        <p style="color: white;">Contact :+917902606485 || hospitalCare@gmail.com</p>
+      </div>
+    </p>
+  
+    <br>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 col-sm-12">
+          <div style="color:#ffffff;" class="wow fadeInUp footer-copyright">
+            <p> <br>
+               </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+</html>

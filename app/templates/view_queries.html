@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+      crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+      crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+</head>
+<style>
+   body{
+        background-color: antiquewhite;
+    }
+footer {
+      padding: 20px; /* Add some padding */
+      background-color: rgba(0, 0, 0, 0.734);
+      margin: 0px;
+      width: 100%;
+      height: 140px;
+      position: fixed;
+      bottom: 0;
+      display: flex; /* Use flexbox */
+      justify-content: space-between; /* Align content evenly */
+    }
+
+    .fa {
+      padding: 20px;
+      font-size: 23px;
+      width: 60px;
+      text-align: center;
+      text-decoration: none;
+      margin: 5px 2px;
+      border-radius: 50%;
+    }
+
+    .fa:hover {
+      opacity: 0.5;
+      text-decoration: none;
+    }
+    p {
+      text-align: center;
+    }
+</style>
+<body>
+    <nav class="navbar navbar-expand-lg bg-body-secondary">
+        <div class="container-fluid">
+          <a style="font-size: 25px;" class="navbar-brand" href="{% url 'AdminLandingPage' %}"><b>Health Care</b><i class='fas fa-stethoscope' style='font-size:48px;color:red'></i></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a style="margin-left: 1250px; font-size: 20px;"  href=""></a>
+              <a style=" font-size: 20px;" class="nav-link"  href="{% url 'logout' %}"><b>Logout <i style='font-size:24px' class='fas'>&#xf011;</i></b></a>
+            </div>
+          </div>
+        </div>
+    </nav>
+    <br>
+<center>
+<div class="container card shadow">
+    <div class="">
+        <h2 class="p-2" style="border-bottom: px solid orange">View Enquiry Queries</h2>
+        <div class="container table-responsive">
+            <h1 class="text-success text-center"></h1>
+            <table class="table table-bordered">
+                <tr align="center">
+                    <td colspan="4" style="font-size : 20px; color : red"> View Queries Details</td>
+                </tr>
+
+                <tr>
+                    <th>Name</th>
+                    <td>{{contact.name}}</td>
+
+                    <th>Contact No.</th>
+                    <td>{{contact.contact}}</td>
+                </tr>
+
+                <tr>
+                    <th>Email ID</th>
+                    <td>{{contact.email}}</td>
+
+                    <th>Subject</th>
+                    <td>{{contact.subject}}</td>
+                </tr>
+
+                <tr>
+                    <th>Enquiry Message</th>
+                    <td colspan="3">{{contact.message}}</td>
+                </tr>
+
+                <tr>
+                    <th>Enquiry Date</th>
+                    <td colspan="3">{{contact.msgdate}}</td>
+                </tr>
+
+            </table>
+        </div>
+    </div>
+</div>
+</center>
+<br><br><br>
+<footer>
+    <div class="container" style="color: white;">
+        <div class="row">
+            <div class="col-md-12 col-sm-12">
+                <p>Contact :+917902606485 || hospitalCare@gmail.com</p>
+                <p>Ambulance service :+917902606485</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+</html>

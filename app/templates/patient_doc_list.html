@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <title>Departments</title>
+</head>
+
+<style>
+    /* Add your custom styles here */
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #144524a0;
+    }
+
+    .navbar-brand {
+        font-size: 25px;
+    }
+    footer {
+        padding: 0px 0px 0px 0px;
+        background-color: rgba(0, 0, 0, 0.734);
+        margin: 0px;
+    }
+
+    .fa {
+        padding: 20px;
+        font-size: 23px;
+        width: 60px;
+        text-align: center;
+        text-decoration: none;
+        margin: 5px 2px;
+        border-radius: 50%;
+    }
+
+    .fa:hover {
+        opacity: 0.5;
+        text-decoration: none;
+    }
+
+    .fa-facebook {
+        background: #3B5998;
+        color: white;
+        margin-top: 30px;
+    }
+
+    .fa-whatsapp {
+        background: #25d366;
+        color: white;
+    }
+
+    .fa-twitter {
+        background: #55ACEE;
+        color: white;
+    }
+
+    .fa-instagram {
+        background: #125688;
+        color: white;
+    }
+
+    p {
+        text-align: center;
+    }
+
+    .doctor-card {
+        justify-content: space-between;
+        margin-bottom: 20px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.756);
+        background-color: #ffffff7f;
+    }
+
+    .doctor-card img {
+        width: 90px;
+        height: 90px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-right: 10px;
+    }
+</style>
+
+<body>
+    <div>
+        <nav class="navbar navbar-expand-lg bg-body-secondary">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="{% url 'PatientLandingPage' %}"><b>Health Care</b><i
+                        class='fas fa-stethoscope' style='font-size:48px;color:red'></i></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav ml-auto">
+                        <a style="margin-left: 1200px;" href=""></a>
+                        <a  class="nav-link active" aria-current="page" href="{% url 'PatientLandingPage' %}"><b>Home</b></a>
+                        <a class="nav-link active" aria-current="page" href="{% url 'logout' %}"><b>Logout <i
+                                    class='fas'>&#xf011;</i></b></a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <br><br>
+
+    <div class="container">
+        <div class="row justify-content-center">
+            {% for p in doc %}
+            <div class="col-md-6">
+                <div class="doctor-card">
+                    <img src="{{p.dr_image.url}}" alt="Doctor 1">
+                    <div>
+                        <h4 style="font-family: Arial, Helvetica, sans-serif;">Name: {{p.dr_name}}</h4>
+                        <p style="font-family: Arial, Helvetica, sans-serif;" class="">Department: {{p.dr_department}}</p>
+                        <p style="font-family: Arial, Helvetica, sans-serif;" class="">Contact: {{p.dr_phone}}</p>
+                        <p style="font-family: Arial, Helvetica, sans-serif;" class="">Active status: <b
+                                style="color: rgb(154, 26, 124);">{{p.dr_time}}</b> today</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <br><br><br>
+    <footer>
+        <p>
+            <a href="" class="fa fa-facebook"></a>
+            <a href="" class="fa fa-instagram"></a>
+            <a href="" class="fa fa-twitter"></a>
+            <a href="" class="fa fa-whatsapp"></a>
+        </p>
+        <div>
+            <p style="color: white;">Contact: +917902606485 || hospitalCare@gmail.com</p>
+        </div>
+        <br>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-sm-12">
+                    <div style="color:#ffffff;" class="wow fadeInUp footer-copyright">
+                        <p><br></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Add the Bootstrap JS and other scripts you need -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
